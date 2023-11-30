@@ -22,14 +22,7 @@ float filterPixel( float * image,
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            dist = util::computePatchDistance(  image,  
-                                                _weights, 
-                                                n, 
-                                                patchSize, 
-                                                patchRowStart, 
-                                                patchColStart, 
-                                                i - patchSize / 2, 
-                                                j - patchSize / 2  );
+            dist = util::computePatchDistance(image, _weights, n, patchSize, patchRowStart, patchColStart, i - patchSize / 2, j - patchSize / 2  );
             w = util::computeWeight(dist, sigma);
             sumW += w;
             res += w * image[i * n + j];
